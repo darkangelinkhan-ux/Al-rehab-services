@@ -892,8 +892,8 @@
       <div class="auth-brand-logo">
         <div class="auth-brand-icon">📊</div>
         <div>
-          <div class="auth-brand-name">AgencyCRM</div>
-          <div class="auth-brand-sub">Pro Dashboard</div>
+          <div class="auth-brand-name">Al-rehab CRM</div>
+          <div class="auth-brand-sub"> Dashboard</div>
         </div>
       </div>
       <div class="auth-brand-heading">Grow your agency with <span>data-driven</span> insights</div>
