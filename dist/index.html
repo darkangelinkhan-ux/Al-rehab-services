@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>AgencyCRM — Social Media Dashboard</title>
+    <meta name="description" content="Professional CRM & Social Media Analytics Dashboard for digital agencies" />
+    <meta property="og:title" content="AgencyCRM — Social Media Dashboard" />
+    <meta property="og:description" content="Professional CRM & Social Media Analytics Dashboard for digital agencies" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="module" crossorigin src="/assets/index-CCU-4aOb.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index--sJsSG0y.css">
+  </head>
+  <body>
+    <!-- Auth Screen (shown when not logged in) -->
+    <div id="auth-screen" style="display:none"></div>
+
+    <div id="app" style="display:none">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <div class="sidebar-logo">
+            <label class="logo-upload-zone" id="logoUploadZone" title="Click to upload your agency logo">
+              <span class="logo-letters" id="logoLetters">AC</span>
+              <span class="logo-upload-overlay">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              </span>
+              <input type="file" id="logoUpload" accept="image/*" style="display:none">
+            </label>
+            <div class="logo-text">
+              <span class="logo-title">AgencyCRM</span>
+              <span class="logo-sub">Pro Dashboard</span>
+            </div>
+          </div>
+          <button class="sidebar-close" id="sidebarClose" aria-label="Close sidebar">×</button>
+        </div>
+
+        <nav class="sidebar-nav">
+          <div class="nav-section-label">Main</div>
+          <a href="#dashboard" class="nav-item active" data-page="dashboard">
+            <span class="nav-icon">⊞</span>
+            <span class="nav-label">Dashboard</span>
+          </a>
+          <a href="#leads" class="nav-item" data-page="leads">
+            <span class="nav-icon">◎</span>
+            <span class="nav-label">Leads Management</span>
+            <span class="nav-badge">24</span>
+          </a>
+          <a href="#analytics" class="nav-item" data-page="analytics">
+            <span class="nav-icon">↗</span>
+            <span class="nav-label">Social Analytics</span>
+          </a>
+          <a href="#services" class="nav-item" data-page="services">
+            <span class="nav-icon">⬡</span>
+            <span class="nav-label">Top Services</span>
+          </a>
+
+          <div class="nav-section-label">Reports</div>
+          <a href="#reports" class="nav-item" data-page="reports">
+            <span class="nav-icon">≡</span>
+            <span class="nav-label">Reports</span>
+          </a>
+          <a href="#notifications" class="nav-item" data-page="notifications">
+            <span class="nav-icon">🔔</span>
+            <span class="nav-label">Notifications</span>
+            <span class="nav-badge new">5</span>
+          </a>
+
+          <div class="nav-section-label">Account</div>
+          <a href="#settings" class="nav-item" data-page="settings">
+            <span class="nav-icon">⚙</span>
+            <span class="nav-label">Settings</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="user-card" id="sidebarUserCard">
+            <div class="user-avatar" id="sidebarUserAvatar">JD</div>
+            <div class="user-info">
+              <span class="user-name" id="sidebarUserName">John Doe</span>
+              <span class="user-role" id="sidebarUserRole">Admin</span>
+            </div>
+            <button class="logout-btn" title="Logout">⏏</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Sidebar Overlay -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <!-- Main Content -->
+      <div class="main-wrapper">
+        <!-- Top Navbar -->
+        <header class="topbar">
+          <div class="topbar-left">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+              <span></span><span></span><span></span>
+            </button>
+            <div class="page-title-wrap">
+              <h1 class="page-title" id="pageTitle">Dashboard</h1>
+              <span class="page-breadcrumb" id="pageBreadcrumb">Overview</span>
+            </div>
+          </div>
+          <div class="topbar-right">
+            <!-- Date Filter -->
+            <div class="date-filter-wrap">
+              <div class="date-filter-btn" id="dateFilterBtn">
+                <span class="filter-icon">📅</span>
+                <span id="dateFilterLabel">Last 30 Days</span>
+                <span class="filter-chevron">▾</span>
+              </div>
+              <div class="date-filter-dropdown" id="dateFilterDropdown">
+                <div class="filter-options">
+                  <button class="filter-opt" data-range="today">Today</button>
+                  <button class="filter-opt" data-range="yesterday">Yesterday</button>
+                  <button class="filter-opt" data-range="7days">Last 7 Days</button>
+                  <button class="filter-opt active" data-range="30days">Last 30 Days</button>
+                  <button class="filter-opt" data-range="90days">Last 90 Days</button>
+                  <button class="filter-opt" data-range="thismonth">This Month</button>
+                  <button class="filter-opt" data-range="custom">Custom Range</button>
+                </div>
+                <div class="custom-date-wrap" id="customDateWrap" style="display:none">
+                  <input type="date" id="dateFrom" class="date-input">
+                  <span>to</span>
+                  <input type="date" id="dateTo" class="date-input">
+                  <button class="apply-btn" id="applyDateRange">Apply</button>
+                </div>
+              </div>
+            </div>
+
+            <button class="topbar-btn notification-btn" id="notifBtn" title="Notifications">
+              🔔
+              <span class="notif-dot"></span>
+            </button>
+            <button class="topbar-btn theme-toggle" id="themeToggle" title="Toggle theme">
+              <span class="theme-icon-light">☀</span>
+              <span class="theme-icon-dark">☾</span>
+            </button>
+            <div class="topbar-avatar-wrap" id="topbarAvatarWrap">
+              <div class="topbar-avatar" id="topbarAvatar" title="Account menu">JD</div>
+              <div class="topbar-user-menu" id="topbarUserMenu">
+                <div class="topbar-user-menu-header">
+                  <div class="topbar-user-menu-name"  id="menuUserName">John Doe</div>
+                  <div class="topbar-user-menu-email" id="menuUserEmail">john@example.com</div>
+                </div>
+                <button class="topbar-user-menu-item" id="menuSettingsBtn">⚙ Account Settings</button>
+                <div class="topbar-user-menu-sep"></div>
+                <button class="topbar-user-menu-item danger" id="menuSignOutBtn">⏏ Sign Out</button>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Page Content -->
+        <main class="page-content" id="pageContent">
+          <!-- Pages injected by JS -->
+        </main>
+      </div>
+    </div>
+
+  </body>
+</html>
